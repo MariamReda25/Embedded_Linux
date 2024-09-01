@@ -33,33 +33,42 @@ function main () {
     echo " 2. Dry-Run "
     read -p "Select Option(1-2) :" OPTION
     
-    ls -a $DIRECTORY_PATH | while read line;do
+    # List Content of Input directory to Processing on Files
 
-        FILE_PATH="$DIRECTORY_PATH/$line"
-        if [[ ! ($FILE_PATH == "$DIRECTORY_PATH/.") && ! ($FILE_PATH == "$DIRECTORY_PATH/..") ]]; then
-            FILE_DATE=$(date +%s -r $FILE_PATH)
-            CURRENT_DATE=$(date +%s)
-            FILE_AGE=$((($CURRENT_DATE - $FILE_DATE)/ 86400))
-            if (( $NUMBER_OF_DAYS <= $FILE_AGE )); then
-               case $OPTION in
-                1)
-                  if [[ -f $FILE_PATH ]]; then
+    ls -a $DIRECTORY_PATH | while read line;do
+    FILE_PATH="$DIRECTORY_PATH/$line"
+
+    # Check if file is not current (.) or (..)
+    if [[ ! ($FILE_PATH == "$DIRECTORY_PATH/.") && ! ($FILE_PATH == "$DIRECTORY_PATH/..") ]]; then
+        # get date of file and Current date
+        FILE_DATE=$(date +%s -r $FILE_PATH)
+        CURRENT_DATE=$(date +%s)
+
+        # get difference of dates to compute age of file in days
+        FILE_AGE=$((($CURRENT_DATE - $FILE_DATE)/ 86400))
+
+        # check on file age according to input number of days.
+        if (( $NUMBER_OF_DAYS <= $FILE_AGE )); then
+
+            # true case : based on input Option > Clear or just Print
+            case $OPTION in
+            1)
+                if [[ -f $FILE_PATH ]]; then
                     rm $FILE_PATH
-                  fi
-                  
-                  ;;
-                2)
-                  if [[ -f $FILE_PATH ]]; then
+                fi  
+                ;;
+            2)
+                if [[ -f $FILE_PATH ]]; then
                     echo "$FILE_PATH"
-                  fi
-                  ;;
-                *)
-                  echo "Invalid Option"
-                  ;;
-               esac
-            fi
-       fi
-    done
+                fi
+                ;;
+            *)
+                echo "Invalid Option"
+                ;;
+            esac
+        fi
+    fi
+ done
     
 }
 ############################### Calling main ########################################################
