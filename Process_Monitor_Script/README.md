@@ -3,7 +3,8 @@
  ## 🔍 Project Overview : 
 Create a Bash script that serves as a simple process monitor.
 Allowing users to view, manage, and analyze running processes on a Unix-like system.
-🗒️ Features :
+
+## 🗒️ Features :
 1.List Running Processes:
 
  - Implement functionality to list all running processes with essential information (PID, name, CPU/Memory usage).
