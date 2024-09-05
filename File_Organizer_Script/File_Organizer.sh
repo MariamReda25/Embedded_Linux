@@ -29,7 +29,7 @@ declare FILE_EXTENSION
 
 # - FUnctions :
 
-# Function
+# Function print date of running Script in log file
 function Start_script () {
 
    date > $LOG_FILE
@@ -129,7 +129,7 @@ function Print_Tree () {
 
 function main () {
   
-   Start_script
+    Start_script
 
   # Check existance of input directory
    Check_dierctory_existance
