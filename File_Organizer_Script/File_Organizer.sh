@@ -112,8 +112,7 @@ function Process_directory () {
    List "$DIRECTORY_PATH" | while read file; do
       FILE_PATH="$DIRECTORY_PATH/$file"
       if [[ -f $FILE_PATH ]]; then
-         Extract_file_extension "$file" 
-         echo "$FILE_PATH"
+         Extract_file_extension "$file"
          Organize_Files "$FILE_EXTENSION" "$file" "$FILE_PATH"
 
       fi
