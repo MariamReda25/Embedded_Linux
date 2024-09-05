@@ -21,7 +21,7 @@ declare CONFIG_FILE="File_Organizer.conf"
    if [[ -f $CONFIG_FILE ]]; then
       source $CONFIG_FILE
    else 
-      Print " Configuration File Not exist " >> $LOG_FILE
+      Print " Log[ERROR] : Configuration File Not exist " >> $LOG_FILE
       exit 1
    fi
 
