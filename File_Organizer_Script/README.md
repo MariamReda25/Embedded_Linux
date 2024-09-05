@@ -17,6 +17,14 @@ This can be useful to keep your directories clean and tidy by automatically sort
     4.If a subdirectory for a particular file type already exists, the script should move the files into that existing directory.
     
     5.The script should handle edge cases, such as files with no extensions or hidden files (those starting with a dot).
+
+## ⚙️ Configuration File :
+
+ Configure Directory Name of edge cases, such as files with no extensions or hidden files (those starting with a dot).
+
+## 🐞 Log File 
+
+ For debugging at any Problem such as " No config file or input directory not exist "
 ## ⌨️ Run Script:
 ```
 chmod +x File_Organizer.sh
