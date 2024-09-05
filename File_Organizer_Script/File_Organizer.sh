@@ -106,7 +106,7 @@ function Organize_Files () {
  
 }
 
-# Function used to Organize Files based on it's extension
+# Function used to Process on files within directory 
 function Process_directory () {
       
    List "$DIRECTORY_PATH" | while read file; do
@@ -134,11 +134,8 @@ function main () {
   # Check existance of input directory
    Check_dierctory_existance
    
-  # Start Organizing Files within input directory
+    # Start Proceesing on Files within this directory by Passing it to organize Function 
    Process_directory
-     
-   # Start Proceesing on Files within this directory by Passing it to organize Function     
- 
 
    # After organizing Files within input directory > Print Tree of Organized directory
    Print_Tree $DIRECTORY_PATH
