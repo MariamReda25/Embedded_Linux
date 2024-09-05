@@ -6,56 +6,143 @@
 #  Input : Directory Path
 #  Output: Tree of Organized directory
 #  Author: Mariam Reda 
+#
 ############################### Global Variables & Functions #########################################
+# - Variables :
+
 # input directory path from terminal
 declare DIRECTORY_PATH=$1
 
+declare LOG_FILE="log.txt"
+
+# Configuration File :
+declare CONFIG_FILE="File_Organizer.conf"
+
+   if [[ -f $CONFIG_FILE ]]; then
+      source $CONFIG_FILE
+   else 
+      Print " Configuration File Not exist " >> $LOG_FILE
+      exit 1
+   fi
+
 declare FILE_EXTENSION
 
-# Function used to Organize Files based on it's extension
+# - FUnctions :
+
+# Function
+function Start_script () {
+
+   date > $LOG_FILE
+}
+# Function used to Print Messages
+function Print () {
+   echo "$1"
+}
+
+# Function Check existance of input directoy
+function Check_dierctory_existance () {
+
+  if [[ ! -d $DIRECTORY_PATH ]]; then
+      Print "Log[ERROR]:Input directory Not Exist" >> $LOG_FILE
+       exit 1 
+  fi
+}
+
+# Function used to extract extension of file
+function Extract_file_extension () {
+
+   FILE_EXTENSION="${1##*.}"
+}
+
+# Function Create new directory 
+function Create () {
+     
+     mkdir "$1"
+}
+
+# Function Move files 
+function Move () {
+  
+     mv "$1" "$2"
+}
+
+# Function List content of directory
+function List () {
+
+   ls -a "$1"
+}
+
+# Function Organize Files based on extension
 function Organize_Files () {
+   
+   # Case 1. File with No extension
+   if [[ $1 == $2 ]]; then
+      if [[ ! -d "$DIRECTORY_PATH/$NO_EXTENSION_DIR" ]]; then
+            Create "$DIRECTORY_PATH/$NO_EXTENSION_DIR"
+      fi
+      Move "$3" "$DIRECTORY_PATH/$NO_EXTENSION_DIR"
 
-        # Extract File's extension
-        FILE_EXTENSION="${1##*.}"
-
-        # Check for (Files with no extension , hidden Files , Files with unknown extinsion)
-       if [[ ($FILE_EXTENSION == $1) || ($FILE_EXTENSION == "unknown") || ((! -z $FILE_EXTENSION) &&( -z "${1%.*}"))]]; then
-            if [[ ! -d "$DIRECTORY_PATH/misc" ]]; then
-                mkdir "$DIRECTORY_PATH/misc"
-            fi
-            mv "$2" "$DIRECTORY_PATH/misc"
-        else 
-           if [[ ! -d "$DIRECTORY_PATH/$FILE_EXTENSION" ]]; then
-              mkdir "$DIRECTORY_PATH/$FILE_EXTENSION"
+   # Case 2. Hidden Files except (.) / (..)
+   elif [[ (! -z $1) && ( -z "${2%.*}") ]]; then
+      if [[ ! -d "$DIRECTORY_PATH/$HIDDEN_DIR" ]]; then
+         Create "$DIRECTORY_PATH/$HIDDEN_DIR"
+      fi
+      Move "$3" "$DIRECTORY_PATH/$HIDDEN_DIR"
+   
+   # Case 3. Unknown 
+   elif [[ $1 == "unknown" ]]; then 
+      if [[ ! -d "$DIRECTORY_PATH/$UNKNOWN_DIR" ]]; then
+         Create "$DIRECTORY_PATH/$UNKNOWN_DIR"
+      fi
+      Move "$3" "$DIRECTORY_PATH/$UNKNOWN_DIR"
+   
+   # Case 4 . file with specific extension
+   else 
+      if [[ ! -d "$DIRECTORY_PATH/$1" ]]; then
+              Create "$DIRECTORY_PATH/$1"
            fi
-           mv "$2" "$DIRECTORY_PATH/$FILE_EXTENSION"
-        fi
+           Move "$3" "$DIRECTORY_PATH/$1"
+   fi
  
 }
+
+# Function used to Organize Files based on it's extension
+function Process_directory () {
+      
+   List "$DIRECTORY_PATH" | while read file; do
+      FILE_PATH="$DIRECTORY_PATH/$file"
+      if [[ -f $FILE_PATH ]]; then
+         Extract_file_extension "$file" 
+         echo "$FILE_PATH"
+         Organize_Files "$FILE_EXTENSION" "$file" "$FILE_PATH"
+
+      fi
+   done
+}
+
+# Function Print Content of directory in tree fashion
+function Print_Tree () {
+    
+   tree $1
+}
+
 ############################### main Function #################################################################
 
 function main () {
+  
+   Start_script
+
+  # Check existance of input directory
+   Check_dierctory_existance
    
-   declare FILE_PATH
-
-  # check if input directory is exist or not
-  if [[ ! -d $DIRECTORY_PATH ]]; then
-       echo "directory Not Exist"
-       exit 1 
-  fi
-    
-   # Start Proceesing on Files within this directory by Passing it to organize Function
-
+  # Start Organizing Files within input directory
+   Process_directory
      
-     ls -a $DIRECTORY_PATH | while read file; do
-         FILE_PATH="$DIRECTORY_PATH/$file"
-        if [[ -f $FILE_PATH ]]; then
-         Organize_Files $file $FILE_PATH
-        fi
-   done
+   # Start Proceesing on Files within this directory by Passing it to organize Function     
+ 
 
    # After organizing Files within input directory > Print Tree of Organized directory
-   tree $DIRECTORY_PATH
+   Print_Tree $DIRECTORY_PATH
 
 }
 ############################### Calling main ########################################################
