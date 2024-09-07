@@ -1,4 +1,4 @@
-# Project Idea: File Organizer
+# 🚀 Project Idea: File Organizer
 
 ## 🔍 Overview:
 
