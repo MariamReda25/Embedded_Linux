@@ -35,4 +35,9 @@ We'll also provide the ability for a user to be looked up by an ID, retrieving t
 g++ main.cpp -o main
 ./main
 ```
+## ✨ Expected Output :
+
+  Output1.png 
+  
+  Output2.png
 
