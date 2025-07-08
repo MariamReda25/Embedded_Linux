@@ -4,7 +4,7 @@
 
 - To design and implement a versatile numeric library utilizing the power of Modern C++ templates, 
 
-demonstrating a solid understanding of template programming, arithmetic operations, and operator overloading.
+dem#onstrating a solid understanding of template programming, arithmetic operations, and operator overloading.
 
 ### ⚙️ Core Features:
 
@@ -22,12 +22,25 @@ demonstrating a solid understanding of template programming, arithmetic operatio
     
     3- Arithmetic Data Types Support: The functions should work exclusively with arithmetic data types, demonstrating the library's focus on numeric operations.
 
+### ➕ Bonus Feature: String Support:
+
+    Implement support for a string data type , which includes a specific behavior for the sub and sum functions 
+
+### 💻 To Run Application :
+
+   ``` cmak .. & make -j ```
+
+   ``` ./PRINT ``` 
+
+   📍 Note: You can change project name from CmakeLists.txt
+    
 ### 🟢 Summary :
 
  - This Project is made for applying Core concepts of Templates which we learned in This module
 
-### Documenation :
+### 📝 Documenation :
 
  - 👀 You can see what we learned from my documenation:
 
  - 🔗 [Templates_Documentation](https://app.diagrams.net/#DC%2B%2B%20Template.drawio#%7B%22pageId%22%3A%22IUAlwGMAHGsqyFc2PKaR%22%7D)
+
