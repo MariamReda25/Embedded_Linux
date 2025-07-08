@@ -1,12 +1,12 @@
-### 📌 Templates Graduation Project: Development of a Numeric Library in Modern C++
+# 📌 Templates Graduation Project: Development of a Numeric Library in Modern C++
 
-## 📋 Project Objective:
+### 📋 Project Objective:
 
 - To design and implement a versatile numeric library utilizing the power of Modern C++ templates, 
 
 demonstrating a solid understanding of template programming, arithmetic operations, and operator overloading.
 
-## ⚙️ Core Features:
+### ⚙️ Core Features:
 
    1- Numeric Operations: The library will feature the following key numeric operations:
 
@@ -22,11 +22,11 @@ demonstrating a solid understanding of template programming, arithmetic operatio
     
     3- Arithmetic Data Types Support: The functions should work exclusively with arithmetic data types, demonstrating the library's focus on numeric operations.
 
-## 🟢 Summary :
+### 🟢 Summary :
 
  - This Project is made for applying Core concepts of Teplates which we learned in This module
 
-## Documenation :
+### Documenation :
 
  - 👀 You can see what we learned from my documenation:
 
