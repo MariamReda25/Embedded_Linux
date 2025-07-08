@@ -22,7 +22,7 @@ dem#onstrating a solid understanding of template programming, arithmetic operati
     
     3- Arithmetic Data Types Support: The functions should work exclusively with arithmetic data types, demonstrating the library's focus on numeric operations.
 
-### ➕ Bonus Feature: String Support:
+### ➕ Bonus Feature: String Support
 
     Implement support for a string data type , which includes a specific behavior for the sub and sum functions 
 
