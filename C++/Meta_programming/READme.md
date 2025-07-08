@@ -24,7 +24,7 @@ demonstrating a solid understanding of template programming, arithmetic operatio
 
 ### 🟢 Summary :
 
- - This Project is made for applying Core concepts of Teplates which we learned in This module
+ - This Project is made for applying Core concepts of Templates which we learned in This module
 
 ### Documenation :
 
