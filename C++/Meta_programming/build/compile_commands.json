@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/ubuntu/Documents/Templates/build",
+  "command": "/usr/bin/g++ -I/home/ubuntu/Documents/Templates/includes -I/home/ubuntu/Documents/Templates/utils -g -o CMakeFiles/PRINT.dir/src/main.cpp.o -c /home/ubuntu/Documents/Templates/src/main.cpp",
+  "file": "/home/ubuntu/Documents/Templates/src/main.cpp"
+}
+]

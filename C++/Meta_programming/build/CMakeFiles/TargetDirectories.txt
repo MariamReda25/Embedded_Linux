@@ -1,0 +1,3 @@
+/home/ubuntu/Documents/Templates/build/CMakeFiles/PRINT.dir
+/home/ubuntu/Documents/Templates/build/CMakeFiles/edit_cache.dir
+/home/ubuntu/Documents/Templates/build/CMakeFiles/rebuild_cache.dir
