@@ -4,7 +4,7 @@
 
 - To design and implement a versatile numeric library utilizing the power of Modern C++ templates, 
 
-dem#onstrating a solid understanding of template programming, arithmetic operations, and operator overloading.
+  demonstrating a solid understanding of template programming, arithmetic operations, and operator overloading.
 
 ### ⚙️ Core Features:
 
